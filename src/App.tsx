@@ -1,10 +1,10 @@
-import { Box, Button, Text, VStack } from '@chakra-ui/react'
+import { Box, Button, VStack, Text } from '@chakra-ui/react'
 import { useState } from 'react'
 
-const App = ()  => {
+const App = () => {
   const [count, setCount] = useState(0)
 
-  const handleOnClick = () => setCount(prev => prev + 1)
+  const handleOnClick = () => setCount((prev) => prev + 1)
 
   return (
     <>
