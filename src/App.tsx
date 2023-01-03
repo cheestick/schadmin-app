@@ -1,4 +1,4 @@
-import { Box, Button, VStack, Text } from '@chakra-ui/react'
+import { Box, Button, VStack, Text, Portal } from '@chakra-ui/react'
 import { useState } from 'react'
 
 const App = () => {
@@ -8,12 +8,18 @@ const App = () => {
 
   return (
     <>
-      <Box>
-        <VStack>
-          <Text>{count}</Text>
-          <Button onClick={handleOnClick}>Increase</Button>
-        </VStack>
-      </Box>
+      <VStack>
+        <Text>Main App flow</Text>
+      </VStack>
+      <Portal>
+        <Box bg="green.400" px="8" py="10" my={10} mx={10} rounded="3xl">
+          <VStack>
+            <Text>Portal</Text>
+            <Text>{count}</Text>
+            <Button onClick={handleOnClick}>Increase</Button>
+          </VStack>
+        </Box>
+      </Portal>
     </>
   )
 }
