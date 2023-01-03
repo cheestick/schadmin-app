@@ -1,14 +1,12 @@
+import { Icon, PhoneIcon } from '@chakra-ui/icons'
 import {
   Box,
   Button,
   VStack,
   Text,
-  Portal,
-  Fade,
   useDisclosure,
-  Slide,
-  SlideFade,
-  Collapse,
+  Avatar,
+  AvatarGroup,
 } from '@chakra-ui/react'
 import { useState } from 'react'
 
@@ -20,20 +18,40 @@ const App = () => {
 
   return (
     <>
-      <VStack>
-        <Text onClick={onToggle}>Main App flow</Text>
-      </VStack>
-      <Portal>
-        <Collapse in={isOpen} animateOpacity>
-          <Box bg="green.400" px="8" py="10" my={10} mx={10} rounded="3xl">
-            <VStack>
-              <Text>Portal</Text>
-              <Text>{count}</Text>
-              <Button onClick={handleOnClick}>Increase</Button>
-            </VStack>
-          </Box>
-        </Collapse>
-      </Portal>
+      <PhoneIcon />
+      <Icon />
+      <AvatarGroup size={'lg'} spacing={-3}>
+        <Avatar
+          size={'xl'}
+          bg="teal.200"
+          name="Maks Chystyakov"
+          //src="https://avatars.githubusercontent.com/u/74751903"
+        ></Avatar>
+        <Avatar
+          size={'xl'}
+          bg="red.200"
+          name="K D"
+          //src="https://avatars.githubusercontent.com/u/74751903"
+        ></Avatar>
+        <Avatar
+          size={'xl'}
+          bg="purple.200"
+          name="A Ba"
+          //src="https://avatars.githubusercontent.com/u/74751903"
+        ></Avatar>
+        <Avatar
+          size={'xl'}
+          bg="yellow.300"
+          name="D K"
+          //src="https://avatars.githubusercontent.com/u/74751903"
+        ></Avatar>
+        <Avatar
+          size={'xl'}
+          bg="blue.200"
+          name="A Zh"
+          //src="https://avatars.githubusercontent.com/u/74751903"
+        ></Avatar>
+      </AvatarGroup>
     </>
   )
 }
