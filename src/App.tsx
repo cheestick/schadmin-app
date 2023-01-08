@@ -1,4 +1,4 @@
-import { Icon, PhoneIcon } from '@chakra-ui/icons'
+import { Icon, PhoneIcon, StarIcon } from '@chakra-ui/icons'
 import {
   Box,
   Button,
@@ -7,8 +7,23 @@ import {
   useDisclosure,
   Avatar,
   AvatarGroup,
+  AspectRatio,
+  HStack,
+  Badge,
+  Image,
 } from '@chakra-ui/react'
 import { useState } from 'react'
+
+const property = {
+  imageUrl: 'http://bit.ly/2Z4KKcF',
+  imageAlt: 'Rear view of moder nome with pool',
+  beds: 3,
+  baths: 2,
+  title: 'Modern home in city center in the heart of historic Los Angeles',
+  formattedPrice: '$1,900.00',
+  reviewCount: 34,
+  rating: 4,
+}
 
 const App = () => {
   const [count, setCount] = useState(0)
@@ -18,40 +33,61 @@ const App = () => {
 
   return (
     <>
-      <PhoneIcon />
-      <Icon />
-      <AvatarGroup size={'lg'} spacing={-3}>
-        <Avatar
-          size={'xl'}
-          bg="teal.200"
-          name="Maks Chystyakov"
-          //src="https://avatars.githubusercontent.com/u/74751903"
-        ></Avatar>
-        <Avatar
-          size={'xl'}
-          bg="red.200"
-          name="K D"
-          //src="https://avatars.githubusercontent.com/u/74751903"
-        ></Avatar>
-        <Avatar
-          size={'xl'}
-          bg="purple.200"
-          name="A Ba"
-          //src="https://avatars.githubusercontent.com/u/74751903"
-        ></Avatar>
-        <Avatar
-          size={'xl'}
-          bg="yellow.300"
-          name="D K"
-          //src="https://avatars.githubusercontent.com/u/74751903"
-        ></Avatar>
-        <Avatar
-          size={'xl'}
-          bg="blue.200"
-          name="A Zh"
-          //src="https://avatars.githubusercontent.com/u/74751903"
-        ></Avatar>
-      </AvatarGroup>
+      <VStack>
+        <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+          <Image src={property.imageUrl} alt={property.imageAlt} />
+
+          <Box p="6">
+            <Box display="flex" alignItems="baseline">
+              <Badge borderRadius="full" px="2" colorScheme="teal">
+                New
+              </Badge>
+              <Box
+                ml={2}
+                textTransform="uppercase"
+                fontSize="xs"
+                color="gray.500"
+                fontWeight="semibold"
+                letterSpacing="wide"
+              >
+                {property.beds} beds &bull; {property.baths} baths
+              </Box>
+            </Box>
+
+            <Box
+              mt="1"
+              fontWeight="semibold"
+              as="h4"
+              lineHeight="tight"
+              noOfLines={1}
+            >
+              {property.title}
+            </Box>
+
+            <Box>
+              {property.formattedPrice}
+              <Box as="span" color="gray.600" fontSize="sm">
+                / wk
+              </Box>
+            </Box>
+
+            <Box display="flex" mt="2" alignItems="center">
+              {Array(5)
+                .fill('')
+                .map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    color={i < property.rating ? 'teal.500' : 'gray.300'}
+                  />
+                ))}
+
+              <Box as="span" ml="2" color="gray.600" fontSize="sm">
+                {property.reviewCount} reviews
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </VStack>
     </>
   )
 }
