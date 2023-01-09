@@ -1,8 +1,14 @@
-import { Icon, PhoneIcon, StarIcon } from '@chakra-ui/icons'
 import { Box, Container } from '@chakra-ui/react'
 
 const App = () => {
-  return <></>
+  return (
+    <>
+      <Box>Login menu bar</Box>
+      <Box>Trainers Avatar Section</Box>
+      <Box>Schedule Controls Bar</Box>
+      <Box>Schedule</Box>
+    </>
+  )
 }
 
 export default App
