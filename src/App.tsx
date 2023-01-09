@@ -1,6 +1,8 @@
 import { Box, Center, Container } from '@chakra-ui/react'
 import SetCard from './components/SetCard/'
 
+import { testSetData } from './mockData/tempMock'
+
 const App = () => {
   return (
     <>
@@ -9,7 +11,7 @@ const App = () => {
       <Box>Schedule Controls Bar</Box>
       <Box>Schedule</Box>
       <Center>
-        <SetCard />
+        <SetCard {...testSetData} />
       </Center>
     </>
   )

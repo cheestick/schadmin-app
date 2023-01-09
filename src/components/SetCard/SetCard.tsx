@@ -1,21 +1,34 @@
-import { Box } from '@chakra-ui/react'
+import { Box, HStack } from '@chakra-ui/react'
+import { CableLineType, SetType } from '../../types'
 
-interface SetCardProps {
-  cableLine: string
+interface ISetCardProps {
+  cableLine: CableLineType
   creationDate: string
   userName: string
   userPhoneNumber: string
-  setType: 'training' | 'freeride'
+  setType: SetType
   trainerNickname: string
 }
 
-function SetCard() {
+function SetCard({
+  cableLine,
+  creationDate,
+  userName,
+  userPhoneNumber,
+  setType,
+  trainerNickname,
+}: ISetCardProps) {
   return (
     <Box>
-      <Box>Tab Name | Tab Creation</Box>
-      <Box>Time User Number</Box>
-      <Box>User Fullname</Box>
-      <Box>Set type Badge | Trainer Nickname</Box>
+      <HStack>
+        <Box>{cableLine}</Box>
+        <Box>{creationDate}</Box>
+      </HStack>
+      <Box>{userPhoneNumber}</Box>
+      <Box>{userName}</Box>
+      <Box>
+        {setType}| {trainerNickname}
+      </Box>
     </Box>
   )
 }
