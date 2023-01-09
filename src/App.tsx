@@ -1,4 +1,5 @@
-import { Box, Container } from '@chakra-ui/react'
+import { Box, Center, Container } from '@chakra-ui/react'
+import SetCard from './components/SetCard/'
 
 const App = () => {
   return (
@@ -7,6 +8,9 @@ const App = () => {
       <Box>Trainers Avatar Section</Box>
       <Box>Schedule Controls Bar</Box>
       <Box>Schedule</Box>
+      <Center>
+        <SetCard />
+      </Center>
     </>
   )
 }
